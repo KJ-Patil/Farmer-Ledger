@@ -67,7 +67,7 @@ export function Sidebar() {
                     : 'text-muted-foreground hover:bg-accent/40 hover:text-foreground'
                 }`}
               >
-                <Icon className={`h-4.5 w-4.5 transition-transform duration-200 ${isActive ? 'scale-105' : ''}`} />
+                <Icon className={`h-[18px] w-[18px] transition-transform duration-200 ${isActive ? 'scale-105' : ''}`} />
                 <span className="flex-1">{t(item.translationKey)}</span>
                 {item.translationKey === 'dashboardTitle' && syncQueueCount > 0 && (
                   <span className="bg-primary/25 text-primary text-[10px] px-1.5 py-0.5 rounded-full font-bold animate-pulse">
@@ -129,7 +129,7 @@ export function Sidebar() {
               onClick={toggleTheme} 
               className="rounded-lg h-8 w-8 hover:bg-accent/40 text-muted-foreground hover:text-foreground shrink-0"
             >
-              {theme === 'light' ? <Moon className="h-4.5 w-4.5" /> : <Sun className="h-4.5 w-4.5" />}
+              {theme === 'light' ? <Moon className="h-[18px] w-[18px]" /> : <Sun className="h-[18px] w-[18px]" />}
             </Button>
             <Button 
               variant="ghost" 
@@ -137,7 +137,7 @@ export function Sidebar() {
               onClick={handleSignOut} 
               className="rounded-lg h-8 w-8 hover:bg-destructive/10 text-muted-foreground hover:text-destructive shrink-0"
             >
-              <LogOut className="h-4.5 w-4.5" />
+              <LogOut className="h-[18px] w-[18px]" />
             </Button>
           </div>
         </div>

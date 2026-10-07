@@ -143,7 +143,7 @@ export function SettingsPage() {
     setValidationSuccess(null)
 
     if (!fullName || !village || !taluka || !district || !pincode) {
-      setValidationError('कृपया सर्व आवश्यक माहिती प्रविष्ट करा.')
+      setValidationError(preferredLanguage === 'mr' ? 'कृपया सर्व आवश्यक माहिती प्रविष्ट करा.' : 'Please fill all required fields.')
       return
     }
 
@@ -217,8 +217,8 @@ export function SettingsPage() {
       )}
 
       {validationSuccess && (
-        <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-3.5 text-xs text-emerald-600 font-semibold flex items-center gap-2">
-          <CheckCircle2 className="h-4.5 w-4.5 shrink-0" />
+        <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-3.5 text-xs text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-2">
+          <CheckCircle2 className="h-[18px] w-[18px] shrink-0" />
           <span>{validationSuccess}</span>
         </div>
       )}
@@ -264,7 +264,7 @@ export function SettingsPage() {
             {user?.googleUid ? (
               <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-3.5 flex flex-col gap-2 mt-1">
                 <div className="flex flex-col gap-0.5">
-                  <span className="text-[10px] font-bold text-emerald-600 flex items-center gap-1.5">
+                  <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
                     <CheckCircle2 className="h-3.5 w-3.5 shrink-0" />
                     {preferredLanguage === 'mr' ? 'गुगल खाते जोडले आहे' : 'Google account linked'}
                   </span>
@@ -330,7 +330,7 @@ export function SettingsPage() {
               {/* Profile Details Section */}
               <div className="flex flex-col gap-3">
                 <div className="flex items-center gap-2 border-b border-border/20 pb-2">
-                  <User className="h-4.5 w-4.5 text-primary" />
+                  <User className="h-[18px] w-[18px] text-primary" />
                   <h3 className="text-sm font-bold text-foreground">
                     {preferredLanguage === 'mr' ? 'वैयक्तिक तपशील' : 'Personal Details'}
                   </h3>
@@ -437,7 +437,7 @@ export function SettingsPage() {
               {/* Address / Location Section */}
               <div className="flex flex-col gap-3">
                 <div className="flex items-center gap-2 border-b border-border/20 pb-2">
-                  <MapPin className="h-4.5 w-4.5 text-primary" />
+                  <MapPin className="h-[18px] w-[18px] text-primary" />
                   <h3 className="text-sm font-bold text-foreground">
                     {preferredLanguage === 'mr' ? 'पत्ता आणि स्थान' : 'Address & Location'}
                   </h3>
@@ -526,7 +526,7 @@ export function SettingsPage() {
                     <MapPin className={`h-4 w-4 ${gpsStatus === 'fetching' ? 'animate-bounce' : ''}`} />
                     <span>
                       {gpsStatus === 'idle' && t('gpsDetect')}
-                      {gpsStatus === 'fetching' && 'शोधत आहे...'}
+                      {gpsStatus === 'fetching' && (preferredLanguage === 'mr' ? 'शोधत आहे...' : 'Searching...')}
                       {gpsStatus === 'success' && t('gpsSuccess')}
                       {gpsStatus === 'error' && t('gpsError')}
                     </span>
@@ -538,7 +538,7 @@ export function SettingsPage() {
               {/* Preferences Section */}
               <div className="flex flex-col gap-3">
                 <div className="flex items-center gap-2 border-b border-border/20 pb-2">
-                  <Globe className="h-4.5 w-4.5 text-primary" />
+                  <Globe className="h-[18px] w-[18px] text-primary" />
                   <h3 className="text-sm font-bold text-foreground">
                     {preferredLanguage === 'mr' ? 'सिस्टम प्राधान्ये' : 'System Preferences'}
                   </h3>

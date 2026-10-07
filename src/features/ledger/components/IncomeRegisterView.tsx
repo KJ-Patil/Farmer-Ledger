@@ -475,7 +475,12 @@ export function IncomeRegisterView({
                     </div>
 
                     <button
-                      onClick={() => user && deleteTransaction(user.mobileNumber, tx.id)}
+                      onClick={() => {
+                        if (confirm(isMr ? 'हा उत्पन्न व्यवहार कायमचा डिलीट करायचा आहे का?' : 'Are you sure you want to delete this income transaction?')) {
+                          user && deleteTransaction(user.mobileNumber, tx.id)
+                        }
+                      }}
+                      aria-label={isMr ? 'व्यवहार डिलीट करा' : 'Delete transaction'}
                       className="text-muted-foreground hover:text-destructive h-8 w-8 rounded-lg flex items-center justify-center hover:bg-accent/40 transition-colors shrink-0"
                     >
                       <X className="h-4 w-4" />
@@ -503,7 +508,7 @@ export function IncomeRegisterView({
               onClick={() => setSelectedLoanTx(null)}
               className="absolute right-4 top-4 text-muted-foreground hover:text-foreground h-8 w-8 rounded-full flex items-center justify-center hover:bg-accent/40"
             >
-              <X className="h-4.5 w-4.5" />
+              <X className="h-[18px] w-[18px]" />
             </button>
 
             <h3 className="text-base font-bold text-foreground mb-1">

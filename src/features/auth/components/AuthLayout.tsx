@@ -54,7 +54,7 @@ export function AuthLayout({ children }: AuthLayoutProps) {
         {/* Global Error Banner */}
         {error && (
           <div className="bg-destructive/10 border border-destructive/20 rounded-xl p-3.5 flex items-start gap-2.5 text-xs text-destructive font-medium animate-shake">
-            <AlertCircle className="h-4.5 w-4.5 shrink-0 mt-0.5" />
+            <AlertCircle className="h-[18px] w-[18px] shrink-0 mt-0.5" />
             <div className="flex-1">
               {t(error)}
             </div>

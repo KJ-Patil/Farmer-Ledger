@@ -298,7 +298,7 @@ export function CreditTrackerView({ transactions, onOpenAddModal }: CreditTracke
               onClick={() => setSelectedTx(null)}
               className="absolute right-4 top-4 text-muted-foreground hover:text-foreground h-8 w-8 rounded-full flex items-center justify-center hover:bg-accent/40"
             >
-              <X className="h-4.5 w-4.5" />
+              <X className="h-[18px] w-[18px]" />
             </button>
 
             <h3 className="text-base font-bold text-foreground mb-1">

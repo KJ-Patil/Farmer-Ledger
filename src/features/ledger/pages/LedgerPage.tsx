@@ -468,67 +468,62 @@ export function LedgerPage() {
       />
 
       {/* Header block with Actions */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+      <div className="flex flex-col gap-3">
         <div>
           <h1 className="text-2xl font-bold tracking-tight text-foreground flex items-center gap-2">
             <BookOpen className="h-6 w-6 text-primary shrink-0" />
             <span>{isMr ? 'हिशोब आणि लेजर व्यवस्थापन' : 'Accounting & Ledger Management'}</span>
           </h1>
           <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
-            {isMr 
-              ? 'शेतकऱ्याचा वैयक्तिक, शेती आणि व्यवसायाचा संपूर्ण आर्थिक हिशोब.' 
+            {isMr
+              ? 'शेतकऱ्याचा वैयक्तिक, शेती आणि व्यवसायाचा संपूर्ण आर्थिक हिशोब.'
               : 'Complete financial ledger for farm business, personal cashflow, and party khaata.'}
           </p>
         </div>
 
-        {/* Action Buttons */}
-        <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
-          {/* AI OCR Scanner Button */}
+        {/* Action Buttons - single row below subtitle */}
+        <div className="flex items-center gap-2">
           <Button
             type="button"
             variant="outline"
             onClick={() => setIsOCRModalOpen(true)}
-            className="rounded-xl h-10 px-3.5 text-xs font-bold gap-1.5 border-amber-500/30 bg-amber-500/10 text-amber-700 dark:text-amber-300 hover:bg-amber-500/20 shadow-sm"
+            className="rounded-xl h-10 px-3.5 text-xs font-bold gap-1.5 border-amber-500/30 bg-amber-500/10 text-amber-700 dark:text-amber-300 hover:bg-amber-500/20 shadow-sm whitespace-nowrap"
           >
             <Sparkles className="h-4 w-4 text-amber-500" />
             <span>{isMr ? 'AI बिल स्कॅनर' : 'AI OCR Scanner'}</span>
           </Button>
 
-          {/* Custom Ledgers Manager Button */}
           <Button
             type="button"
             variant="outline"
             onClick={() => setIsCustomLedgersModalOpen(true)}
-            className="rounded-xl h-10 px-3.5 text-xs font-bold gap-1.5 text-foreground hover:bg-muted/40"
+            className="rounded-xl h-10 px-3.5 text-xs font-bold gap-1.5 text-foreground hover:bg-muted/40 whitespace-nowrap"
           >
             <FolderPlus className="h-4 w-4 text-primary" />
             <span>{isMr ? 'सानुकूल खाती' : 'Custom Ledgers'}</span>
           </Button>
 
-          {/* Money In Button */}
           <Button
             type="button"
             onClick={() => setIsMoneyInModalOpen(true)}
-            className="rounded-xl shadow-md shadow-emerald-600/20 gap-1.5 h-10 px-4 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold"
+            className="rounded-xl shadow-md shadow-emerald-600/20 gap-1.5 h-10 px-4 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold whitespace-nowrap"
           >
             <TrendingUp className="h-4 w-4" />
-            <span>{isMr ? 'उत्पन्न नोंदवा (Money In)' : 'Money In'}</span>
+            <span>{isMr ? 'Money In' : 'Money In'}</span>
           </Button>
 
-          {/* Money Out Button */}
           <Button
             type="button"
             onClick={() => setIsMoneyOutModalOpen(true)}
-            className="rounded-xl shadow-md shadow-rose-600/20 gap-1.5 h-10 px-4 bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold"
+            className="rounded-xl shadow-md shadow-rose-600/20 gap-1.5 h-10 px-4 bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold whitespace-nowrap"
           >
             <TrendingDown className="h-4 w-4" />
-            <span>{isMr ? 'खर्च नोंदवा (Money Out)' : 'Money Out'}</span>
+            <span>{isMr ? 'Money Out' : 'Money Out'}</span>
           </Button>
 
-          {/* Add Transaction Button */}
           <Button
             onClick={() => handleOpenAddModal()}
-            className="rounded-xl shadow-md shadow-primary/20 gap-1.5 h-10 px-4 bg-primary text-primary-foreground text-xs font-bold"
+            className="rounded-xl shadow-md shadow-primary/20 gap-1.5 h-10 px-4 bg-primary text-primary-foreground text-xs font-bold whitespace-nowrap"
           >
             <Plus className="h-4 w-4" />
             <span>{isMr ? 'व्यवहार जोडा' : 'Add Transaction'}</span>
@@ -1085,7 +1080,7 @@ export function LedgerPage() {
               onClick={() => setPreviewAttachment(null)}
               className="absolute right-4 top-4 text-muted-foreground hover:text-foreground h-8 w-8 rounded-full flex items-center justify-center hover:bg-accent/40"
             >
-              <X className="h-4.5 w-4.5" />
+              <X className="h-[18px] w-[18px]" />
             </button>
 
             <h3 className="text-sm font-bold text-foreground mb-3 truncate pr-8">
@@ -1273,7 +1268,7 @@ export function LedgerPage() {
               onClick={() => setIsModalOpen(false)}
               className="absolute right-4 top-4 text-muted-foreground hover:text-foreground h-8 w-8 rounded-full flex items-center justify-center hover:bg-accent/40"
             >
-              <X className="h-4.5 w-4.5" />
+              <X className="h-[18px] w-[18px]" />
             </button>
 
             <div className="flex items-center justify-between pr-8 mb-1">

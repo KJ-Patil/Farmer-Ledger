@@ -24,9 +24,11 @@ export function BottomNav() {
             <Link
               key={item.path}
               to={item.path}
+              aria-label={t(item.translationKey)}
+              aria-current={isActive ? 'page' : undefined}
               className={`flex flex-col items-center justify-center w-16 h-12 rounded-lg transition-all duration-200 active:scale-95 ${
-                isActive 
-                  ? 'text-primary' 
+                isActive
+                  ? 'text-primary'
                   : 'text-muted-foreground hover:text-foreground'
               }`}
             >

@@ -649,7 +649,7 @@ export function InventoryPage() {
                             size="sm"
                             variant="outline"
                             onClick={() => handleOpenPurchase(item)}
-                            className="rounded-lg h-7 px-2 text-[11px] font-bold text-blue-600 hover:bg-blue-50"
+                            className="rounded-lg h-7 px-2 text-[11px] font-bold text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/30"
                           >
                             + {isMr ? 'खरेदी' : 'Buy'}
                           </Button>
@@ -847,7 +847,7 @@ export function InventoryPage() {
                       {item.type}
                     </span>
                     <span className="text-[10px] font-semibold text-muted-foreground">
-                      एकक: {item.unit}
+                      {isMr ? 'एकक' : 'Unit'}: {item.unit}
                     </span>
                   </div>
 

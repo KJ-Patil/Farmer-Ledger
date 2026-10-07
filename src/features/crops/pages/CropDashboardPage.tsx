@@ -43,6 +43,7 @@ export function CropDashboardPage() {
 
   const activePlot = plots.find((p) => p.id === plotId)
   const activeCrop = plotId && crops[plotId] ? crops[plotId].find((c) => c.id === cropId) : undefined
+  const isCropLocked = activeCrop?.stage === 'completed'
 
   if (loading && !activeCrop) {
     return (
@@ -115,7 +116,7 @@ export function CropDashboardPage() {
             onClick={() => navigate(`/plots/${plotId}`)}
             className="h-9 w-9 rounded-xl shrink-0"
           >
-            <ArrowLeft className="h-4.5 w-4.5" />
+            <ArrowLeft className="h-[18px] w-[18px]" />
           </Button>
           <div>
             <h1 className="text-2xl font-bold tracking-tight text-foreground flex items-center gap-2">
@@ -410,7 +411,7 @@ export function CropDashboardPage() {
               onClick={() => setShowHarvestDialog(false)}
               className="absolute right-4 top-4 text-muted-foreground hover:text-foreground h-8 w-8 rounded-full flex items-center justify-center hover:bg-accent/40"
             >
-              <X className="h-4.5 w-4.5" />
+              <X className="h-[18px] w-[18px]" />
             </button>
 
             <h3 className="text-base font-bold text-foreground mb-1 mt-1">

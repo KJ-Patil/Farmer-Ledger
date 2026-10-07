@@ -74,97 +74,110 @@ export function ReportsHubView({
   const [shareFeedback, setShareFeedback] = useState<string | null>(null)
 
   // Report definitions
-  const reportList: { id: ReportType; titleMr: string; titleEn: string; descMr: string; icon: any }[] = [
-    { 
-      id: 'ledger', 
-      titleMr: 'सर्व खाती अहवाल (General Ledger)', 
+  const reportList: { id: ReportType; titleMr: string; titleEn: string; descMr: string; descEn: string; icon: any }[] = [
+    {
+      id: 'ledger',
+      titleMr: 'सर्व खाती अहवाल (General Ledger)',
       titleEn: 'General Ledger Report',
       descMr: 'सर्व वैयक्तिक, शेती, पार्टी व सानुकूल खात्यांचा संपूर्ण हिशोब',
-      icon: BookOpen 
+      descEn: 'Complete ledger of personal, agriculture, party & custom accounts',
+      icon: BookOpen
     },
-    { 
-      id: 'cash_book', 
-      titleMr: 'दैनिक रोख नोंदवही (Cash Book)', 
+    {
+      id: 'cash_book',
+      titleMr: 'दैनिक रोख नोंदवही (Cash Book)',
       titleEn: 'Daily Cash Book',
       descMr: 'केवळ रोखीने (Cash) झालेले दैनंदिन जमा व खर्च व्यवहार',
-      icon: Landmark 
+      descEn: 'Daily cash income and expense transactions only',
+      icon: Landmark
     },
-    { 
-      id: 'bank_book', 
-      titleMr: 'बँक / UPI वही (Bank Book)', 
+    {
+      id: 'bank_book',
+      titleMr: 'बँक / UPI वही (Bank Book)',
       titleEn: 'Bank & UPI Book',
       descMr: 'बँक ट्रान्सफर, UPI आणि धनादेशाचे (Cheque) सर्व व्यवहार',
-      icon: ExternalLink 
+      descEn: 'All bank transfers, UPI and cheque transactions',
+      icon: ExternalLink
     },
-    { 
-      id: 'profit_loss', 
-      titleMr: 'नफा-तोटा पत्रक (P&L Statement)', 
+    {
+      id: 'profit_loss',
+      titleMr: 'नफा-तोटा पत्रक (P&L Statement)',
       titleEn: 'Profit & Loss Statement',
       descMr: 'उत्पन्न, प्रत्यक्ष व अप्रत्यक्ष खर्च व निव्वळ नफा अहवाल',
-      icon: Sparkles 
+      descEn: 'Income, direct & indirect expenses, and net profit report',
+      icon: Sparkles
     },
-    { 
-      id: 'plot_report', 
-      titleMr: 'प्लॉटनिहाय अहवाल (Plot Report)', 
+    {
+      id: 'plot_report',
+      titleMr: 'प्लॉटनिहाय अहवाल (Plot Report)',
       titleEn: 'Plot-Wise Report',
       descMr: 'प्रत्येक शेत गटातील खर्च, उत्पादन व नफ्याचा सविस्तर ताळेबंद',
-      icon: Sprout 
+      descEn: 'Detailed expenses, yield and profit per farm plot',
+      icon: Sprout
     },
-    { 
-      id: 'crop_report', 
-      titleMr: 'पिकनिहाय अहवाल (Crop Report)', 
+    {
+      id: 'crop_report',
+      titleMr: 'पिकनिहाय अहवाल (Crop Report)',
       titleEn: 'Crop-Wise Report',
       descMr: 'कांदा, सोयाबीन, ऊस, गहू इत्यादी पिकांचा स्वतंत्र ताळेबंद',
-      icon: Sprout 
+      descEn: 'Individual balance sheet per crop type',
+      icon: Sprout
     },
-    { 
-      id: 'dairy_report', 
-      titleMr: 'दूध व्यवसाय अहवाल (Dairy Report)', 
+    {
+      id: 'dairy_report',
+      titleMr: 'दूध व्यवसाय अहवाल (Dairy Report)',
       titleEn: 'Dairy Business Report',
       descMr: 'दूध विक्री, जनावरांचा चारा, औषधे व निव्वळ डेअरी नफा',
-      icon: Milk 
+      descEn: 'Milk sales, cattle feed, medicines & net dairy profit',
+      icon: Milk
     },
-    { 
-      id: 'income_report', 
-      titleMr: 'उत्पन्न नोंदवही (Income Report)', 
+    {
+      id: 'income_report',
+      titleMr: 'उत्पन्न नोंदवही (Income Report)',
       titleEn: 'Income Only Report',
       descMr: 'शेतीमाल विक्री, अनुदान, मजुरी व इतर उत्पन्नाच्या नोंदी',
-      icon: TrendingUp 
+      descEn: 'Crop sales, subsidies, labor & other income records',
+      icon: TrendingUp
     },
-    { 
-      id: 'expense_report', 
-      titleMr: 'खर्च नोंदवही (Expense Report)', 
+    {
+      id: 'expense_report',
+      titleMr: 'खर्च नोंदवही (Expense Report)',
       titleEn: 'Expense Only Report',
       descMr: 'शेती, डेअरी व वैयक्तिक खर्चांचे सविस्तर वर्गीकरण',
-      icon: TrendingDown 
+      descEn: 'Detailed categorization of farm, dairy & personal expenses',
+      icon: TrendingDown
     },
-    { 
-      id: 'party_loan_report', 
-      titleMr: 'पार्टी व कर्ज अहवाल (Party & Loans)', 
+    {
+      id: 'party_loan_report',
+      titleMr: 'पार्टी व कर्ज अहवाल (Party & Loans)',
       titleEn: 'Party & Loan Ledger',
       descMr: 'कृषी केंद्र, बँक कर्जे, सावकारी व इतर बाकीदारांचे खाते',
-      icon: Users 
+      descEn: 'Agri centers, bank loans, moneylenders & creditor accounts',
+      icon: Users
     },
-    { 
-      id: 'input_consumption', 
-      titleMr: 'साठा वापर अहवाल (Input Consumption)', 
+    {
+      id: 'input_consumption',
+      titleMr: 'साठा वापर अहवाल (Input Consumption)',
       titleEn: 'Input Consumption Report',
       descMr: 'प्लॉट व पिकांसाठी वापरलेली खते, बियाणे व औषधे आणि वास्तव खर्च',
-      icon: Boxes 
+      descEn: 'Fertilizers, seeds & pesticides used per plot and actual cost',
+      icon: Boxes
     },
-    { 
-      id: 'input_stock', 
-      titleMr: 'शिल्लक इनपुट साठा (Input Stock Report)', 
+    {
+      id: 'input_stock',
+      titleMr: 'शिल्लक इनपुट साठा (Input Stock Report)',
       titleEn: 'Input Stock Report',
       descMr: 'शिल्लक खते, बियाणे, औषधे साठा आणि एकूण गोदाम मूल्यांकन',
-      icon: Package 
+      descEn: 'Remaining fertilizers, seeds, pesticide stock & warehouse valuation',
+      icon: Package
     },
-    { 
-      id: 'season_report', 
-      titleMr: 'हंगामनिहाय अहवाल (Season Wise Report)', 
+    {
+      id: 'season_report',
+      titleMr: 'हंगामनिहाय अहवाल (Season Wise Report)',
       titleEn: 'Season-Wise Agri Report',
       descMr: 'खरीप, रब्बी व उन्हाळी हंगामांनुसार शेतीचे उत्पन्न, खर्च व नफा',
-      icon: Calendar 
+      descEn: 'Kharif, Rabi & summer season income, expenses & profit',
+      icon: Calendar
     },
   ]
 
@@ -642,7 +655,7 @@ _नोंद: हा अहवाल FarmerLedger ERP ॲपद्वारे 
                         {isMr ? item.titleMr : item.titleEn}
                       </h5>
                       <p className="text-[10px] text-muted-foreground truncate">
-                        {item.descMr}
+                        {isMr ? item.descMr : item.descEn}
                       </p>
                     </div>
                   </div>

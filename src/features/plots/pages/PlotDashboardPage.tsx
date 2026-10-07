@@ -87,7 +87,7 @@ export function PlotDashboardPage() {
             onClick={() => navigate('/plots')}
             className="h-9 w-9 rounded-xl shrink-0"
           >
-            <ArrowLeft className="h-4.5 w-4.5" />
+            <ArrowLeft className="h-[18px] w-[18px]" />
           </Button>
           <div>
             <h1 className="text-2xl font-bold tracking-tight text-foreground flex items-center gap-2">

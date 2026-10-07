@@ -60,9 +60,9 @@ export function PageLayout({ children }: PageLayoutProps) {
             {/* Online/Offline Icon */}
             <div className="flex items-center">
               {isOnline ? (
-                <Cloud className="h-4.5 w-4.5 text-emerald-500" />
+                <Cloud className="h-[18px] w-[18px] text-emerald-500" />
               ) : (
-                <CloudOff className="h-4.5 w-4.5 text-amber-500 animate-pulse" />
+                <CloudOff className="h-[18px] w-[18px] text-amber-500 animate-pulse" />
               )}
             </div>
 
@@ -73,7 +73,7 @@ export function PageLayout({ children }: PageLayoutProps) {
               onClick={toggleTheme} 
               className="h-8 w-8 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent/40"
             >
-              {theme === 'light' ? <Moon className="h-4.5 w-4.5" /> : <Sun className="h-4.5 w-4.5" />}
+              {theme === 'light' ? <Moon className="h-[18px] w-[18px]" /> : <Sun className="h-[18px] w-[18px]" />}
             </Button>
 
             {/* User Profile */}
@@ -82,10 +82,10 @@ export function PageLayout({ children }: PageLayoutProps) {
                 <img 
                   src={user.profilePhoto} 
                   alt="Profile" 
-                  className="w-7.5 h-7.5 rounded-full border border-border/40 object-cover"
+                  className="w-[30px] h-[30px] rounded-full border border-border/40 object-cover"
                 />
               ) : (
-                <div className="w-7.5 h-7.5 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold text-[10px] select-none">
+                <div className="w-[30px] h-[30px] rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold text-[10px] select-none">
                   {getInitials(displayName)}
                 </div>
               )}

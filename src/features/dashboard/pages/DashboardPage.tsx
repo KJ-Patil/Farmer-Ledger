@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { 
   TrendingUp, 
   Users, 
@@ -226,9 +226,9 @@ export function DashboardPage() {
     return last6Months
   }
 
-  const chartData = getChartData()
-  const totalRevenue = transactions.reduce((acc, tx) => acc + tx.amount, 0)
-  const uniqueFarmers = new Set(transactions.map(tx => tx.farmer)).size
+  const chartData = useMemo(() => getChartData(), [transactions, selectedLanguage])
+  const totalRevenue = useMemo(() => transactions.reduce((acc, tx) => acc + tx.amount, 0), [transactions])
+  const uniqueFarmers = useMemo(() => new Set(transactions.map(tx => tx.farmer)).size, [transactions])
 
   return (
     <div className="flex flex-col gap-6">
@@ -383,7 +383,8 @@ export function DashboardPage() {
                 <Button 
                   size="icon" 
                   onClick={() => setIsModalOpen(true)} 
-                  className="h-8 w-8 rounded-lg shadow-sm hover:scale-105 active:scale-95 transition-transform duration-200 animate-pulse bg-primary"
+                  className="h-8 w-8 rounded-lg shadow-sm hover:scale-105 active:scale-95 transition-transform duration-200 bg-primary"
+                  aria-label={t('addTransactionTitle')}
                 >
                   <Plus className="h-4 w-4" />
                 </Button>

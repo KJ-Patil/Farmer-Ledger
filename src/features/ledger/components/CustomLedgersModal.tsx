@@ -74,7 +74,7 @@ export function CustomLedgersModal({ isOpen, onClose }: CustomLedgersModalProps)
           onClick={onClose}
           className="absolute right-4 top-4 text-muted-foreground hover:text-foreground h-8 w-8 rounded-full flex items-center justify-center hover:bg-accent/40"
         >
-          <X className="h-4.5 w-4.5" />
+          <X className="h-[18px] w-[18px]" />
         </button>
 
         <div className="flex items-center gap-2.5 mb-1">
@@ -227,7 +227,12 @@ export function CustomLedgersModal({ isOpen, onClose }: CustomLedgersModalProps)
 
                   <button
                     type="button"
-                    onClick={() => user && deleteCustomLedger(user.mobileNumber, ledger.id)}
+                    onClick={() => {
+                      if (confirm(isMr ? 'हे सानुकूल खाते कायमचे हटवायचे आहे का?' : 'Are you sure you want to delete this custom ledger?')) {
+                        user && deleteCustomLedger(user.mobileNumber, ledger.id)
+                      }
+                    }}
+                    aria-label={isMr ? 'खाते हटवा' : 'Delete ledger'}
                     className="text-muted-foreground hover:text-destructive h-7 w-7 rounded-lg flex items-center justify-center hover:bg-accent/40 transition-colors shrink-0"
                   >
                     <Trash2 className="h-3.5 w-3.5" />

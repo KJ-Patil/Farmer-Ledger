@@ -193,7 +193,7 @@ export function AddPlotModal({ isOpen, onClose, onSuccess }: AddPlotModalProps) 
           onClick={onClose}
           className="absolute right-4 top-4 text-muted-foreground hover:text-foreground h-8 w-8 rounded-full flex items-center justify-center hover:bg-accent/40"
         >
-          <X className="h-4.5 w-4.5" />
+          <X className="h-[18px] w-[18px]" />
         </button>
 
         <h3 className="text-base font-bold text-foreground mb-1 mt-1">
@@ -345,7 +345,7 @@ export function AddPlotModal({ isOpen, onClose, onSuccess }: AddPlotModalProps) 
                     : 'bg-background hover:bg-accent/40'
                   }`}
               >
-                <MapPin className={`h-4.5 w-4.5 ${gpsStatus === 'fetching' ? 'animate-bounce' : ''}`} />
+                <MapPin className={`h-[18px] w-[18px] ${gpsStatus === 'fetching' ? 'animate-bounce' : ''}`} />
                 <span>
                   {gpsStatus === 'idle' && t('gpsDetect')}
                   {gpsStatus === 'fetching' && 'शोधत आहे...'}
